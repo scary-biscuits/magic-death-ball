@@ -2,8 +2,6 @@ import React from "react";
 import Options from "./Options";
 
 const Header = (props) => {
-  console.log(props);
-
   return (
     <div className="header-container">
       <div className="logo">
@@ -11,6 +9,7 @@ const Header = (props) => {
       </div>
       <div className="orbitron-one">
         <div className="orbitron-two">
+          <h1>Magic Death Ball</h1>
           <h1>The definitive answer to the hardest question</h1>
         </div>
         <div>

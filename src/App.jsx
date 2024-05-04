@@ -15,7 +15,7 @@ const App = () => {
     const { data } = await axios.get(
       `https://swapi.dev/api/people/${Math.floor(Math.random() * 100)}/`
     );
-    console.log(data);
+   
     setCharacter(data);
   };
 
@@ -23,7 +23,7 @@ const App = () => {
     const { data } = await axios.get(
       `https://swapi.dev/api/planets/${Math.floor(Math.random() * 100)}/`
     );
-    console.log(data);
+
     setPlanet(data);
   };
 
@@ -31,7 +31,7 @@ const App = () => {
     const { data } = await axios.get(
       `https://swapi.dev/api/starships/${Math.floor(Math.random() * 100)}/`
     );
-    console.log(data);
+ 
     setShip(data);
   };
 
@@ -39,7 +39,7 @@ const App = () => {
     const { data } = await axios.get(
       `https://swapi.dev/api/films/${Math.floor(Math.random() * 10)}/`
     );
-    console.log(data);
+ ;
     setFilm(data);
   };
 
@@ -64,9 +64,11 @@ const App = () => {
 
   const handleSelect = (e) => {
     setAnswer("");
+    setShake(true)
     setTimeout(() => {
       const option = e.target.value;
       setSelectedOption(option);
+      setShake(false);
       switch (option) {
         case "character":
           setAnswer(character.name);
@@ -95,7 +97,8 @@ const App = () => {
     <>
       <Header handleSelect={handleSelect} />
 
-      <Layout answer={answer} onToggle={onToggle} />
+      <Layout answer={answer} onToggle={onToggle}
+      shake={shake} />
     </>
   );
 };
