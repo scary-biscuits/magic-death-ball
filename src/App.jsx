@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import axios from "axios";
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [character, setCharacter] = useState([]);
+  const [planet, setPlanet] = useState([]);
+  const [film, setFilm] = useState([]);
+ 
+  const getCharData = async () => {
+    const { data } = await axios.get(
+      `https://swapi.dev/api/people/${Math.floor(Math.random()*100)}/`
+    );
+    console.log(data)
+    setCharacter(data);
+  };
 
+  const getPlanetData = async () => {
+    const { data } = await axios.get(
+      `https://swapi.dev/api/planets/${Math.floor(Math.random()*100)}/`
+    );
+    console.log(data)
+    setPlanet(data);
+  };
+
+  const getFilmData = async () => {
+    const { data } = await axios.get(
+      `https://swapi.dev/api/films/${Math.floor(Math.random()*10)}/`
+    );
+    console.log(data)
+    setFilm(data);
+  };
+
+  useEffect(() => {
+    getCharData();
+    getPlanetData();
+    getFilmData();
+  }, []);
+
+
+  if (!character) {
+    return <p>Loading...</p>
+  }
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <><p>{character.name}</p>
+    <p>{planet.name}</p>
+    <p>{film.title}</p>
     </>
-  )
+  );
+
+
+
 }
 
-export default App
+export default App;
