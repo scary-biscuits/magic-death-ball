@@ -55,6 +55,8 @@ const App = () => {
   const [answer, setAnswer] = useState("");
 
   const handleSelect = (e) => {
+    setAnswer("")
+setTimeout(()=>{
     const option = e.target.value;
     setSelectedOption(option);
     switch (option) {
@@ -74,6 +76,9 @@ const App = () => {
         setAnswer("");
         break;
     }
+
+  },2000)
+
   };
 
   if (!character) {
@@ -85,6 +90,7 @@ const App = () => {
       <Header handleSelect={handleSelect} />
 
       <Layout answer={answer} />
+
     </>
   );
 };
