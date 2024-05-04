@@ -3,6 +3,7 @@ import Options from "./Options";
 
 const Header = (props) => {
   console.log(props)
+
   return (
     <div className="header-container">
       <div className="logo">
@@ -17,7 +18,7 @@ const Header = (props) => {
             Without a doubt, the best <Options handleSelect={props.handleSelect}/> is:
           </h4>
         </div>
-
+</div>
     </div>
   );
 };

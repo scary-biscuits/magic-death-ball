@@ -91,10 +91,9 @@ const App = () => {
     handleSelect={handleSelect}
     />
 
-<p>{answer}</p>
 
-
-      <Layout />
+      <Layout 
+      answer={answer}/>
     </>
   );
 };

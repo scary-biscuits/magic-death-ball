@@ -6,7 +6,7 @@ const Layout = (props) => {
     <div className="parentContainer">
       <img src="./death_star.webp" />
       <div className="display">
-        <h4>Test</h4>
+        <h4>{props.answer}</h4>
       </div>
     </div>
   );
