@@ -1,32 +1,31 @@
-
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import axios from "axios";
-import './App.css'
 import Header from "./components/Header";
 import Layout from "./components/Layout";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+import "./fonts/starWarsFont.ttf";
+import "./App.css";
 
 const App = () => {
+
 
   const [character, setCharacter] = useState([]);
   const [ship, setShip] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [film, setFilm] = useState([]);
- 
+
   const getCharData = async () => {
     const { data } = await axios.get(
-      `https://swapi.dev/api/people/${Math.floor(Math.random()*100)}/`
+      `https://swapi.dev/api/people/${Math.floor(Math.random() * 100)}/`
     );
-    console.log(data)
+    console.log(data);
     setCharacter(data);
   };
 
   const getPlanetData = async () => {
     const { data } = await axios.get(
-      `https://swapi.dev/api/planets/${Math.floor(Math.random()*100)}/`
+      `https://swapi.dev/api/planets/${Math.floor(Math.random() * 100)}/`
     );
-    console.log(data)
+    console.log(data);
     setPlanet(data);
   };
 
@@ -40,9 +39,9 @@ const App = () => {
 
   const getFilmData = async () => {
     const { data } = await axios.get(
-      `https://swapi.dev/api/films/${Math.floor(Math.random()*10)}/`
+      `https://swapi.dev/api/films/${Math.floor(Math.random() * 10)}/`
     );
-    console.log(data)
+    console.log(data);
     setFilm(data);
   };
 
@@ -52,6 +51,7 @@ const App = () => {
     getShipData();
     getFilmData();
   }, []);
+
 
   // dropdown logic
   let [selectedOption, setSelectedOption] = useState("");
@@ -80,9 +80,11 @@ const App = () => {
 
   };
 
+
   if (!character) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
+
    return (
 <>
     <Header      
@@ -92,11 +94,9 @@ const App = () => {
 <p>{answer}</p>
 
 
+      <Layout />
     </>
   );
-
-
-
-}
+};
 
 export default App;

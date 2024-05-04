@@ -11,6 +11,7 @@ const Options = (props) => {
 <option value="planet">Planet</option>
 <option value="ship">Ship</option>
 </select>
+
     </>
   );
 };
