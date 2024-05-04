@@ -3,40 +3,161 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: black;
+}
+
+.orbitron-one {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.orbitron-two {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "StarWars";
+}
+.header-container {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  margin-right: 40px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.parentContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation-name: shake;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.display {
+  height: 170px;
+  width: 193px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.537);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-70%, -136%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes shake {
+  0% {
+    left: 0px;
+    top: 0px;
   }
-  to {
-    transform: rotate(360deg);
+  5% {
+    left: -10px;
+    top: -10px;
+  }
+  10% {
+    left: 10px;
+    top: 10px;
+  }
+  15% {
+    left: -10px;
+    top: -10px;
+  }
+  20% {
+    left: 10px;
+    top: 10px;
+  }
+  25% {
+    left: -10px;
+    top: -10px;
+  }
+  30% {
+    left: 10px;
+    top: 10px;
+  }
+  35% {
+    left: -10px;
+    top: -10px;
+  }
+  40% {
+    left: 10px;
+    top: 10px;
+  }
+  45% {
+    left: -10px;
+    top: -10px;
+  }
+  50% {
+    left: 10px;
+    top: 10px;
+  }
+  55% {
+    left: -10px;
+    top: -10px;
+  }
+  60% {
+    left: 10px;
+    top: 10px;
+  }
+  65% {
+    left: -10px;
+    top: -10px;
+  }
+  70% {
+    left: 10px;
+    top: 10px;
+  }
+  75% {
+    left: -10px;
+    top: -10px;
+  }
+  80% {
+    left: 10px;
+    top: 10px;
+  }
+  85% {
+    left: -10px;
+    top: -10px;
+  }
+  90% {
+    left: 10px;
+    top: 10px;
+  }
+  95% {
+    left: -10px;
+    top: -10px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.dropdown {
+  background-color: white;
+  height: 30px;
+  appearance: none;
+  text-align: center;
+  width: 120px;
+  border: 1px solid;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  line-height: 1.1;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #fff;
+  margin: 0px 7px 0px 7px;
 }
