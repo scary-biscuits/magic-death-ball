@@ -1,6 +1,7 @@
 import React from "react";
 
-const Layout = () => {
+
+const Layout = (props) => {
   return (
     <div className="parentContainer">
       <img src="./death_star.webp" />
@@ -9,6 +10,7 @@ const Layout = () => {
       </div>
     </div>
   );
+
 };
 
 export default Layout;

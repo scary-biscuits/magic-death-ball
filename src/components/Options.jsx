@@ -2,22 +2,16 @@ import { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
-const Options = () => {
-  const [] = useState(null);
-
-  const handleSelect = (option) => {
-    setSelectedOption(option);
-  };
+const Options = (props) => {
 
   return (
-    <>
-      <select onSelect={handleSelect} className="dropdown">
-        <option eventKey="Select option">Select Option</option>
+<>
+<select className="dropdown" onChange={props.handleSelect}><option value="film">Film</option>
+<option value="character">Character</option>
+<option value="planet">Planet</option>
+<option value="ship">Ship</option>
+</select>
 
-        <option eventKey="Film">Film</option>
-        <option eventKey="Character">Character</option>
-        <option eventKey="Ship">Ship</option>
-      </select>
     </>
   );
 };

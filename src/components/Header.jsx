@@ -1,7 +1,8 @@
 import React from "react";
 import Options from "./Options";
 
-const Header = () => {
+const Header = (props) => {
+  console.log(props)
   return (
     <div className="header-container">
       <div className="logo">
@@ -13,10 +14,10 @@ const Header = () => {
         </div>
         <div>
           <h4>
-            Without a doubt, the best <Options /> is:
+            Without a doubt, the best <Options handleSelect={props.handleSelect}/> is:
           </h4>
         </div>
-      </div>
+
     </div>
   );
 };

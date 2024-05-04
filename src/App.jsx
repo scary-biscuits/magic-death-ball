@@ -5,8 +5,11 @@ import Layout from "./components/Layout";
 import "./fonts/starWarsFont.ttf";
 import "./App.css";
 
-const App = (title) => {
+const App = () => {
+
+
   const [character, setCharacter] = useState([]);
+  const [ship, setShip] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [film, setFilm] = useState([]);
 
@@ -26,6 +29,14 @@ const App = (title) => {
     setPlanet(data);
   };
 
+  const getShipData = async () => {
+    const { data } = await axios.get(
+      `https://swapi.dev/api/starships/${Math.floor(Math.random()*100)}/`
+    );
+    console.log(data)
+    setShip(data);
+  };
+
   const getFilmData = async () => {
     const { data } = await axios.get(
       `https://swapi.dev/api/films/${Math.floor(Math.random() * 10)}/`
@@ -37,18 +48,52 @@ const App = (title) => {
   useEffect(() => {
     getCharData();
     getPlanetData();
+    getShipData();
     getFilmData();
   }, []);
+
+
+  // dropdown logic
+  let [selectedOption, setSelectedOption] = useState("");
+  const [answer, setAnswer] = useState("")
+
+  const handleSelect = (e) => {
+    const option = e.target.value;
+    setSelectedOption(option);
+    switch (option) {
+      case "character":
+        setAnswer(character.name);
+        break;
+        case "planet":
+          setAnswer(planet.name);
+          break;
+          case "ship":
+            setAnswer(ship.name);
+            break;
+            case "film":
+              setAnswer(film.title);
+              break;
+              case "":
+                setAnswer("");
+                break;
+    }
+
+  };
+
 
   if (!character) {
     return <p>Loading...</p>;
   }
-  return (
-    <>
-      {/* <p>{character.name}</p>
-      <p>{planet.name}</p>
-      <p>{film.title}</p> */}
-      <Header />
+
+   return (
+<>
+    <Header      
+    handleSelect={handleSelect}
+    />
+
+<p>{answer}</p>
+
+
       <Layout />
     </>
   );
