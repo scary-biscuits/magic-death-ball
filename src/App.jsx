@@ -8,7 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const App = () => {
+
   const [character, setCharacter] = useState([]);
+  const [ship, setShip] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [film, setFilm] = useState([]);
  
@@ -28,6 +30,14 @@ const App = () => {
     setPlanet(data);
   };
 
+  const getShipData = async () => {
+    const { data } = await axios.get(
+      `https://swapi.dev/api/starships/${Math.floor(Math.random()*100)}/`
+    );
+    console.log(data)
+    setShip(data);
+  };
+
   const getFilmData = async () => {
     const { data } = await axios.get(
       `https://swapi.dev/api/films/${Math.floor(Math.random()*10)}/`
@@ -39,19 +49,48 @@ const App = () => {
   useEffect(() => {
     getCharData();
     getPlanetData();
+    getShipData();
     getFilmData();
   }, []);
 
+  // dropdown logic
+  let [selectedOption, setSelectedOption] = useState("film");
+  const [answer, setAnswer] = useState("")
+
+  const handleSelect = (e) => {
+    const option = e.target.value;
+    setSelectedOption(option);
+    switch (option) {
+      case "character":
+        setAnswer(character.name);
+        break;
+        case "planet":
+          setAnswer(planet.name);
+          break;
+          case "ship":
+            setAnswer(ship.name);
+            break;
+            case "film":
+              setAnswer(film.title);
+              break;
+    }
+  
+  };
 
   if (!character) {
     return <p>Loading...</p>
   }
-  return (
-    <><p>{character.name}</p>
-    <p>{planet.name}</p>
-    <p>{film.title}</p>
-    <Header />
-      <Layout />
+   return (
+<>
+    <Header      
+    handleSelect={handleSelect}
+    selectedOption={selectedOption}
+    setSelectedOption={setSelectedOption}
+    />
+
+<p>{answer}</p>
+
+
     </>
   );
 
