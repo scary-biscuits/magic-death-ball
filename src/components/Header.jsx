@@ -2,7 +2,7 @@ import React from "react";
 import Options from "./Options";
 
 const Header = (props) => {
-  console.log(props)
+  console.log(props);
 
   return (
     <div className="header-container">
@@ -15,10 +15,12 @@ const Header = (props) => {
         </div>
         <div>
           <h4>
-            Without a doubt, the best <Options handleSelect={props.handleSelect}/> is:
+            Without a doubt, the best
+            <Options handleSelect={props.handleSelect} />
+            is:
           </h4>
         </div>
-</div>
+      </div>
     </div>
   );
 };
