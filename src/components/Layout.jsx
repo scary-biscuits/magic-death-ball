@@ -1,12 +1,15 @@
 import React from "react";
+import AnswerDisplay from "./AnswerDisplay";
 
 
 const Layout = (props) => {
+
   return (
     <div className="parentContainer">
       <img src="./death_star.webp" />
       <div className="display">
-        <h4>{props.answer}</h4>
+        <AnswerDisplay answer = {props.answer}
+         />
       </div>
     </div>
   );
