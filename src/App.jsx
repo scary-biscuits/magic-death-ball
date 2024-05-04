@@ -53,32 +53,38 @@ const App = () => {
   // dropdown logic
   let [selectedOption, setSelectedOption] = useState("");
   const [answer, setAnswer] = useState("");
+  const [shake, setShake] = useState(false);
+
+  const onToggle = () => {
+    setShake(true);
+    setTimeout(() => {
+      setShake(false);
+    }, 2000);
+  };
 
   const handleSelect = (e) => {
-    setAnswer("")
-setTimeout(()=>{
-    const option = e.target.value;
-    setSelectedOption(option);
-    switch (option) {
-      case "character":
-        setAnswer(character.name);
-        break;
-      case "planet":
-        setAnswer(planet.name);
-        break;
-      case "ship":
-        setAnswer(ship.name);
-        break;
-      case "film":
-        setAnswer(film.title);
-        break;
-      case "":
-        setAnswer("");
-        break;
-    }
-
-  },2000)
-
+    setAnswer("");
+    setTimeout(() => {
+      const option = e.target.value;
+      setSelectedOption(option);
+      switch (option) {
+        case "character":
+          setAnswer(character.name);
+          break;
+        case "planet":
+          setAnswer(planet.name);
+          break;
+        case "ship":
+          setAnswer(ship.name);
+          break;
+        case "film":
+          setAnswer(film.title);
+          break;
+        case "":
+          setAnswer("");
+          break;
+      }
+    }, 2000);
   };
 
   if (!character) {
@@ -89,8 +95,7 @@ setTimeout(()=>{
     <>
       <Header handleSelect={handleSelect} />
 
-      <Layout answer={answer} />
-
+      <Layout answer={answer} onToggle={onToggle} />
     </>
   );
 };
