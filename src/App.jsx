@@ -71,15 +71,19 @@ const App = () => {
       setShake(false);
       switch (option) {
         case "character":
+          getCharData();
           setAnswer(character.name);
           break;
         case "planet":
+          getPlanetData();
           setAnswer(planet.name);
           break;
         case "ship":
+          getShipData();
           setAnswer(ship.name);
           break;
         case "film":
+          getFilmData();
           setAnswer(film.title);
           break;
         case "":
