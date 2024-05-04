@@ -1,6 +1,11 @@
+
 import { useState, useEffect } from 'react'
 import axios from "axios";
 import './App.css'
+import Header from "./components/Header";
+import Layout from "./components/Layout";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const App = () => {
   const [character, setCharacter] = useState([]);
@@ -45,6 +50,8 @@ const App = () => {
     <><p>{character.name}</p>
     <p>{planet.name}</p>
     <p>{film.title}</p>
+    <Header />
+      <Layout />
     </>
   );
 
