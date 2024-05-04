@@ -54,7 +54,7 @@ const App = () => {
   }, []);
 
   // dropdown logic
-  let [selectedOption, setSelectedOption] = useState("film");
+  let [selectedOption, setSelectedOption] = useState("");
   const [answer, setAnswer] = useState("")
 
   const handleSelect = (e) => {
@@ -73,8 +73,11 @@ const App = () => {
             case "film":
               setAnswer(film.title);
               break;
+              case "":
+                setAnswer("");
+                break;
     }
-  
+
   };
 
   if (!character) {
@@ -84,8 +87,6 @@ const App = () => {
 <>
     <Header      
     handleSelect={handleSelect}
-    selectedOption={selectedOption}
-    setSelectedOption={setSelectedOption}
     />
 
 <p>{answer}</p>

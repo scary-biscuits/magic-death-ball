@@ -1,5 +1,4 @@
 import React from "react";
-import Dropdown from "./Options";
 import Options from "./Options";
 
 const Header = (props) => {
@@ -11,9 +10,7 @@ const Header = (props) => {
       </div>
       <div>
         <h4>
-          Without a doubt, the best <Options handleSelect={props.handleSelect}
-              selectedOption={props.selectedOption}
-              setSelectedOption={props.setSelectedOption}/> is:
+          Without a doubt, the best <Options handleSelect={props.handleSelect}/> is:
         </h4>
       </div>
     </>
